@@ -2,7 +2,9 @@
 
 蓝色大肥鱼透明视频宠物：157 个完整动作 + 1 个静态待机，500×500、30 fps。素材由用户提供，未调用 AI 视频生成、未使用上游角色素材。
 
-![动作预览](preview/preview.gif)
+<p align="center">
+ <img src="preview/preview.gif">
+</p>
 
 ## 安装与平台限制
 
