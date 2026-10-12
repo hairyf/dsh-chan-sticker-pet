@@ -1,0 +1,14 @@
+{
+  "id": "dsh-chan-sticker-pet",
+  "kind": "dsh",
+  "displayName": "蓝色大肥鱼贴纸",
+  "description": "完整视频动作；待机使用眨眼素材的中性首帧，不跟随鼠标转向。MOV 为编辑归档格式，非 macOS 透明播放格式。",
+  "configPath": "config.jsonc",
+  "uriPath": "webm",
+  "previewPath": "preview/preview.gif",
+  "ext": {
+    "default": "webm",
+    "mac": "webm"
+  },
+  "size": 400
+}

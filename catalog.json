@@ -1,0 +1,1112 @@
+{
+  "id": "dsh-chan-sticker-pet",
+  "formats": {
+    "webm": "VP9 alpha",
+    "mov": "ProRes 4444 alpha (not HEVC alpha)"
+  },
+  "limitations": [
+    "No true directional poses; turn and movement use static neutral idle.",
+    "macOS transparent playback requires separately produced HEVC-with-Alpha MOV."
+  ],
+  "animations": [
+    {
+      "name": "Bug",
+      "source": "蓝色大肥鱼_Bug_2026-08-18-14-03-46.gif",
+      "duration": 1.98,
+      "webm": "webm/Bug.webm",
+      "mov": "mov/Bug.mov"
+    },
+    {
+      "name": "Popcat 帧",
+      "source": "蓝色大肥鱼_Popcat 帧_2026-08-18-14-24-51.gif",
+      "duration": 0.38,
+      "webm": "webm/Popcat 帧.webm",
+      "mov": "mov/Popcat 帧.mov"
+    },
+    {
+      "name": "Popcat 平滑",
+      "source": "蓝色大肥鱼_Popcat 平滑_2026-08-18-14-24-53.gif",
+      "duration": 0.38,
+      "webm": "webm/Popcat 平滑.webm",
+      "mov": "mov/Popcat 平滑.mov"
+    },
+    {
+      "name": "Raid 1",
+      "source": "蓝色大肥鱼_Raid 1_2026-08-18-14-25-14.gif",
+      "duration": 1.32,
+      "webm": "webm/Raid 1.webm",
+      "mov": "mov/Raid 1.mov"
+    },
+    {
+      "name": "Raid 2",
+      "source": "蓝色大肥鱼_Raid 2_2026-08-18-14-25-25.gif",
+      "duration": 2.08,
+      "webm": "webm/Raid 2.webm",
+      "mov": "mov/Raid 2.mov"
+    },
+    {
+      "name": "一切都好 1",
+      "source": "蓝色大肥鱼_一切都好 1_2026-08-18-14-37-38.gif",
+      "duration": 1.58,
+      "webm": "webm/一切都好 1.webm",
+      "mov": "mov/一切都好 1.mov"
+    },
+    {
+      "name": "一切都好 2",
+      "source": "蓝色大肥鱼_一切都好 2_2026-08-18-14-37-44.gif",
+      "duration": 1.58,
+      "webm": "webm/一切都好 2.webm",
+      "mov": "mov/一切都好 2.mov"
+    },
+    {
+      "name": "一切都好 3",
+      "source": "蓝色大肥鱼_一切都好 3_2026-08-18-14-37-50.gif",
+      "duration": 1.58,
+      "webm": "webm/一切都好 3.webm",
+      "mov": "mov/一切都好 3.mov"
+    },
+    {
+      "name": "主意",
+      "source": "蓝色大肥鱼_主意_2026-08-18-14-15-51.gif",
+      "duration": 1.32,
+      "webm": "webm/主意.webm",
+      "mov": "mov/主意.mov"
+    },
+    {
+      "name": "停止工作",
+      "source": "蓝色大肥鱼_停止工作_2026-08-18-14-34-45.gif",
+      "duration": 1.98,
+      "webm": "webm/停止工作.webm",
+      "mov": "mov/停止工作.mov"
+    },
+    {
+      "name": "催眠",
+      "source": "蓝色大肥鱼_催眠_2026-08-18-14-15-43.gif",
+      "duration": 1.98,
+      "webm": "webm/催眠.webm",
+      "mov": "mov/催眠.mov"
+    },
+    {
+      "name": "像素墨镜反光",
+      "source": "蓝色大肥鱼_像素墨镜反光_2026-08-18-14-35-59.gif",
+      "duration": 1.64,
+      "webm": "webm/像素墨镜反光.webm",
+      "mov": "mov/像素墨镜反光.mov"
+    },
+    {
+      "name": "六七(呆)",
+      "source": "蓝色大肥鱼_六七(呆)_2026-08-18-14-28-28.gif",
+      "duration": 0.64,
+      "webm": "webm/六七(呆).webm",
+      "mov": "mov/六七(呆).mov"
+    },
+    {
+      "name": "六七",
+      "source": "蓝色大肥鱼_六七_2026-08-18-14-28-24.gif",
+      "duration": 0.64,
+      "webm": "webm/六七.webm",
+      "mov": "mov/六七.mov"
+    },
+    {
+      "name": "冒泡 1",
+      "source": "蓝色大肥鱼_冒泡 1_2026-08-18-14-19-35.gif",
+      "duration": 1.32,
+      "webm": "webm/冒泡 1.webm",
+      "mov": "mov/冒泡 1.mov"
+    },
+    {
+      "name": "冒泡 2",
+      "source": "蓝色大肥鱼_冒泡 2_2026-08-18-14-19-43.gif",
+      "duration": 2.32,
+      "webm": "webm/冒泡 2.webm",
+      "mov": "mov/冒泡 2.mov"
+    },
+    {
+      "name": "刀 1",
+      "source": "蓝色大肥鱼_刀 1_2026-08-18-14-16-13.gif",
+      "duration": 1.14,
+      "webm": "webm/刀 1.webm",
+      "mov": "mov/刀 1.mov"
+    },
+    {
+      "name": "刀 2",
+      "source": "蓝色大肥鱼_刀 2_2026-08-18-14-16-18.gif",
+      "duration": 1.14,
+      "webm": "webm/刀 2.webm",
+      "mov": "mov/刀 2.mov"
+    },
+    {
+      "name": "到达(拿勺子)",
+      "source": "蓝色大肥鱼_到达(拿勺子)_2026-08-18-14-03-03.gif",
+      "duration": 2.18,
+      "webm": "webm/到达(拿勺子).webm",
+      "mov": "mov/到达(拿勺子).mov"
+    },
+    {
+      "name": "到达(拿筷子)",
+      "source": "蓝色大肥鱼_到达(拿筷子)_2026-08-18-14-02-54.gif",
+      "duration": 2.18,
+      "webm": "webm/到达(拿筷子).webm",
+      "mov": "mov/到达(拿筷子).mov"
+    },
+    {
+      "name": "到达",
+      "source": "蓝色大肥鱼_到达_2026-08-18-14-02-26.gif",
+      "duration": 2.08,
+      "webm": "webm/到达.webm",
+      "mov": "mov/到达.mov"
+    },
+    {
+      "name": "刷卡",
+      "source": "蓝色大肥鱼_刷卡_2026-08-18-14-04-14.gif",
+      "duration": 0.98,
+      "webm": "webm/刷卡.webm",
+      "mov": "mov/刷卡.mov"
+    },
+    {
+      "name": "加油",
+      "source": "蓝色大肥鱼_加油_2026-08-18-14-05-09.gif",
+      "duration": 0.98,
+      "webm": "webm/加油.webm",
+      "mov": "mov/加油.mov"
+    },
+    {
+      "name": "反向点赞",
+      "source": "蓝色大肥鱼_反向点赞_2026-08-18-14-38-00.gif",
+      "duration": 0.98,
+      "webm": "webm/反向点赞.webm",
+      "mov": "mov/反向点赞.mov"
+    },
+    {
+      "name": "反转",
+      "source": "蓝色大肥鱼_反转_2026-08-18-14-26-21.gif",
+      "duration": 1.34,
+      "webm": "webm/反转.webm",
+      "mov": "mov/反转.mov"
+    },
+    {
+      "name": "叹号",
+      "source": "蓝色大肥鱼_叹号_2026-08-18-14-12-08.gif",
+      "duration": 1.14,
+      "webm": "webm/叹号.webm",
+      "mov": "mov/叹号.mov"
+    },
+    {
+      "name": "吃(爆米花)",
+      "source": "蓝色大肥鱼_吃(爆米花)_2026-08-18-14-11-25.gif",
+      "duration": 1.64,
+      "webm": "webm/吃(爆米花).webm",
+      "mov": "mov/吃(爆米花).mov"
+    },
+    {
+      "name": "吃(甜甜圈)",
+      "source": "蓝色大肥鱼_吃(甜甜圈)_2026-08-18-14-11-06.gif",
+      "duration": 3.98,
+      "webm": "webm/吃(甜甜圈).webm",
+      "mov": "mov/吃(甜甜圈).mov"
+    },
+    {
+      "name": "吃(西瓜)",
+      "source": "蓝色大肥鱼_吃(西瓜)_2026-08-18-14-11-30.gif",
+      "duration": 0.38,
+      "webm": "webm/吃(西瓜).webm",
+      "mov": "mov/吃(西瓜).mov"
+    },
+    {
+      "name": "吉他",
+      "source": "蓝色大肥鱼_吉他_2026-08-18-14-14-50.gif",
+      "duration": 1.32,
+      "webm": "webm/吉他.webm",
+      "mov": "mov/吉他.mov"
+    },
+    {
+      "name": "呆 1",
+      "source": "蓝色大肥鱼_呆 1_2026-08-18-14-10-05.gif",
+      "duration": 0.98,
+      "webm": "webm/呆 1.webm",
+      "mov": "mov/呆 1.mov"
+    },
+    {
+      "name": "呆 2",
+      "source": "蓝色大肥鱼_呆 2_2026-08-18-14-10-11.gif",
+      "duration": 1.64,
+      "webm": "webm/呆 2.webm",
+      "mov": "mov/呆 2.mov"
+    },
+    {
+      "name": "呆 3",
+      "source": "蓝色大肥鱼_呆 3_2026-08-18-14-10-18.gif",
+      "duration": 1.98,
+      "webm": "webm/呆 3.webm",
+      "mov": "mov/呆 3.mov"
+    },
+    {
+      "name": "呆(贴纸) 1",
+      "source": "蓝色大肥鱼_呆(贴纸) 1_2026-08-18-14-10-26.gif",
+      "duration": 0.98,
+      "webm": "webm/呆(贴纸) 1.webm",
+      "mov": "mov/呆(贴纸) 1.mov"
+    },
+    {
+      "name": "呆(贴纸) 2",
+      "source": "蓝色大肥鱼_呆(贴纸) 2_2026-08-18-14-10-34.gif",
+      "duration": 1.64,
+      "webm": "webm/呆(贴纸) 2.webm",
+      "mov": "mov/呆(贴纸) 2.mov"
+    },
+    {
+      "name": "呆(贴纸) 3",
+      "source": "蓝色大肥鱼_呆(贴纸) 3_2026-08-18-14-10-39.gif",
+      "duration": 1.98,
+      "webm": "webm/呆(贴纸) 3.webm",
+      "mov": "mov/呆(贴纸) 3.mov"
+    },
+    {
+      "name": "哭 1",
+      "source": "蓝色大肥鱼_哭 1_2026-08-18-14-07-00.gif",
+      "duration": 1.98,
+      "webm": "webm/哭 1.webm",
+      "mov": "mov/哭 1.mov"
+    },
+    {
+      "name": "哭 2",
+      "source": "蓝色大肥鱼_哭 2_2026-08-18-14-07-19.gif",
+      "duration": 1.94,
+      "webm": "webm/哭 2.webm",
+      "mov": "mov/哭 2.mov"
+    },
+    {
+      "name": "哭 3",
+      "source": "蓝色大肥鱼_哭 3_2026-08-18-14-07-23.gif",
+      "duration": 0.52,
+      "webm": "webm/哭 3.webm",
+      "mov": "mov/哭 3.mov"
+    },
+    {
+      "name": "唱歌",
+      "source": "蓝色大肥鱼_唱歌_2026-08-18-14-28-11.gif",
+      "duration": 1.18,
+      "webm": "webm/唱歌.webm",
+      "mov": "mov/唱歌.mov"
+    },
+    {
+      "name": "喝(饮料杯)",
+      "source": "蓝色大肥鱼_喝(饮料杯)_2026-08-18-14-08-52.gif",
+      "duration": 0.64,
+      "webm": "webm/喝(饮料杯).webm",
+      "mov": "mov/喝(饮料杯).mov"
+    },
+    {
+      "name": "喷剂",
+      "source": "蓝色大肥鱼_喷剂_2026-08-18-14-29-52.gif",
+      "duration": 1.38,
+      "webm": "webm/喷剂.webm",
+      "mov": "mov/喷剂.mov"
+    },
+    {
+      "name": "坐牢 1",
+      "source": "蓝色大肥鱼_坐牢 1_2026-08-18-14-16-02.gif",
+      "duration": 1.24,
+      "webm": "webm/坐牢 1.webm",
+      "mov": "mov/坐牢 1.mov"
+    },
+    {
+      "name": "坐牢 2",
+      "source": "蓝色大肥鱼_坐牢 2_2026-08-18-14-16-04.gif",
+      "duration": 0.18,
+      "webm": "webm/坐牢 2.webm",
+      "mov": "mov/坐牢 2.mov"
+    },
+    {
+      "name": "垃圾桶",
+      "source": "蓝色大肥鱼_垃圾桶_2026-08-18-14-38-13.gif",
+      "duration": 0.18,
+      "webm": "webm/垃圾桶.webm",
+      "mov": "mov/垃圾桶.mov"
+    },
+    {
+      "name": "墨镜反光",
+      "source": "蓝色大肥鱼_墨镜反光_2026-08-18-14-35-45.gif",
+      "duration": 1.64,
+      "webm": "webm/墨镜反光.webm",
+      "mov": "mov/墨镜反光.mov"
+    },
+    {
+      "name": "墨镜循环",
+      "source": "蓝色大肥鱼_墨镜循环_2026-08-18-14-35-52.gif",
+      "duration": 1.32,
+      "webm": "webm/墨镜循环.webm",
+      "mov": "mov/墨镜循环.mov"
+    },
+    {
+      "name": "复活节",
+      "source": "蓝色大肥鱼_复活节_2026-08-18-14-10-52.gif",
+      "duration": 1.52,
+      "webm": "webm/复活节.webm",
+      "mov": "mov/复活节.mov"
+    },
+    {
+      "name": "头晕",
+      "source": "蓝色大肥鱼_头晕_2026-08-18-14-08-36.gif",
+      "duration": 1.32,
+      "webm": "webm/头晕.webm",
+      "mov": "mov/头晕.mov"
+    },
+    {
+      "name": "奶酪糊脸",
+      "source": "蓝色大肥鱼_奶酪糊脸_2026-08-18-14-05-39.gif",
+      "duration": 1.32,
+      "webm": "webm/奶酪糊脸.webm",
+      "mov": "mov/奶酪糊脸.mov"
+    },
+    {
+      "name": "害怕 1",
+      "source": "蓝色大肥鱼_害怕 1_2026-08-18-14-26-34.gif",
+      "duration": 0.18,
+      "webm": "webm/害怕 1.webm",
+      "mov": "mov/害怕 1.mov"
+    },
+    {
+      "name": "害怕 2",
+      "source": "蓝色大肥鱼_害怕 2_2026-08-18-14-26-44.gif",
+      "duration": 0.18,
+      "webm": "webm/害怕 2.webm",
+      "mov": "mov/害怕 2.mov"
+    },
+    {
+      "name": "害羞 1",
+      "source": "蓝色大肥鱼_害羞 1_2026-08-18-14-27-24.gif",
+      "duration": 0.98,
+      "webm": "webm/害羞 1.webm",
+      "mov": "mov/害羞 1.mov"
+    },
+    {
+      "name": "害羞 2",
+      "source": "蓝色大肥鱼_害羞 2_2026-08-18-14-27-35.gif",
+      "duration": 0.98,
+      "webm": "webm/害羞 2.webm",
+      "mov": "mov/害羞 2.mov"
+    },
+    {
+      "name": "小丑 1",
+      "source": "蓝色大肥鱼_小丑 1_2026-08-18-14-05-49.gif",
+      "duration": 2.32,
+      "webm": "webm/小丑 1.webm",
+      "mov": "mov/小丑 1.mov"
+    },
+    {
+      "name": "小丑 2",
+      "source": "蓝色大肥鱼_小丑 2_2026-08-18-14-05-56.gif",
+      "duration": 1.98,
+      "webm": "webm/小丑 2.webm",
+      "mov": "mov/小丑 2.mov"
+    },
+    {
+      "name": "工作(小睡)",
+      "source": "蓝色大肥鱼_工作(小睡)_2026-08-18-14-39-08.gif",
+      "duration": 1.98,
+      "webm": "webm/工作(小睡).webm",
+      "mov": "mov/工作(小睡).mov"
+    },
+    {
+      "name": "工作(普通)",
+      "source": "蓝色大肥鱼_工作(普通)_2026-08-18-14-39-12.gif",
+      "duration": 0.64,
+      "webm": "webm/工作(普通).webm",
+      "mov": "mov/工作(普通).mov"
+    },
+    {
+      "name": "工作(生气)",
+      "source": "蓝色大肥鱼_工作(生气)_2026-08-18-14-38-57.gif",
+      "duration": 1.98,
+      "webm": "webm/工作(生气).webm",
+      "mov": "mov/工作(生气).mov"
+    },
+    {
+      "name": "工作(疲倦)",
+      "source": "蓝色大肥鱼_工作(疲倦)_2026-08-18-14-39-19.gif",
+      "duration": 1.98,
+      "webm": "webm/工作(疲倦).webm",
+      "mov": "mov/工作(疲倦).mov"
+    },
+    {
+      "name": "带薪拉屎(困难模式)",
+      "source": "蓝色大肥鱼_带薪拉屎(困难模式)_2026-08-18-14-23-38.gif",
+      "duration": 2.14,
+      "webm": "webm/带薪拉屎(困难模式).webm",
+      "mov": "mov/带薪拉屎(困难模式).mov"
+    },
+    {
+      "name": "带薪拉屎(简单模式)",
+      "source": "蓝色大肥鱼_带薪拉屎(简单模式)_2026-08-18-14-23-31.gif",
+      "duration": 1.32,
+      "webm": "webm/带薪拉屎(简单模式).webm",
+      "mov": "mov/带薪拉屎(简单模式).mov"
+    },
+    {
+      "name": "干杯",
+      "source": "蓝色大肥鱼_干杯_2026-08-18-14-05-31.gif",
+      "duration": 1.32,
+      "webm": "webm/干杯.webm",
+      "mov": "mov/干杯.mov"
+    },
+    {
+      "name": "庆祝",
+      "source": "蓝色大肥鱼_庆祝_2026-08-18-14-04-58.gif",
+      "duration": 1.32,
+      "webm": "webm/庆祝.webm",
+      "mov": "mov/庆祝.mov"
+    },
+    {
+      "name": "得分(0分)",
+      "source": "蓝色大肥鱼_得分(0分)_2026-08-18-14-26-51.gif",
+      "duration": 1.98,
+      "webm": "webm/得分(0分).webm",
+      "mov": "mov/得分(0分).mov"
+    },
+    {
+      "name": "得分(10分)",
+      "source": "蓝色大肥鱼_得分(10分)_2026-08-18-14-27-16.gif",
+      "duration": 1.98,
+      "webm": "webm/得分(10分).webm",
+      "mov": "mov/得分(10分).mov"
+    },
+    {
+      "name": "思考(自信地)",
+      "source": "蓝色大肥鱼_思考(自信地)_2026-08-18-14-37-20.gif",
+      "duration": 0.98,
+      "webm": "webm/思考(自信地).webm",
+      "mov": "mov/思考(自信地).mov"
+    },
+    {
+      "name": "思考(认真地)",
+      "source": "蓝色大肥鱼_思考(认真地)_2026-08-18-14-37-25.gif",
+      "duration": 0.98,
+      "webm": "webm/思考(认真地).webm",
+      "mov": "mov/思考(认真地).mov"
+    },
+    {
+      "name": "情书",
+      "source": "蓝色大肥鱼_情书_2026-08-18-14-19-12.gif",
+      "duration": 1.32,
+      "webm": "webm/情书.webm",
+      "mov": "mov/情书.mov"
+    },
+    {
+      "name": "惊吓",
+      "source": "蓝色大肥鱼_惊吓_2026-08-18-14-36-14.gif",
+      "duration": 1.14,
+      "webm": "webm/惊吓.webm",
+      "mov": "mov/惊吓.mov"
+    },
+    {
+      "name": "打字(恼怒)",
+      "source": "蓝色大肥鱼_打字(恼怒)_2026-08-18-14-38-27.gif",
+      "duration": 0.32,
+      "webm": "webm/打字(恼怒).webm",
+      "mov": "mov/打字(恼怒).mov"
+    },
+    {
+      "name": "打字(普通)",
+      "source": "蓝色大肥鱼_打字(普通)_2026-08-18-14-38-34.gif",
+      "duration": 0.98,
+      "webm": "webm/打字(普通).webm",
+      "mov": "mov/打字(普通).mov"
+    },
+    {
+      "name": "打字(生气)",
+      "source": "蓝色大肥鱼_打字(生气)_2026-08-18-14-38-24.gif",
+      "duration": 0.32,
+      "webm": "webm/打字(生气).webm",
+      "mov": "mov/打字(生气).mov"
+    },
+    {
+      "name": "打招呼 1",
+      "source": "蓝色大肥鱼_打招呼 1_2026-08-18-14-14-29.gif",
+      "duration": 2.32,
+      "webm": "webm/打招呼 1.webm",
+      "mov": "mov/打招呼 1.mov"
+    },
+    {
+      "name": "打招呼 2",
+      "source": "蓝色大肥鱼_打招呼 2_2026-08-18-14-14-35.gif",
+      "duration": 1.98,
+      "webm": "webm/打招呼 2.webm",
+      "mov": "mov/打招呼 2.mov"
+    },
+    {
+      "name": "打游戏",
+      "source": "蓝色大肥鱼_打游戏_2026-08-18-14-13-01.gif",
+      "duration": 0.78,
+      "webm": "webm/打游戏.webm",
+      "mov": "mov/打游戏.mov"
+    },
+    {
+      "name": "扩音器",
+      "source": "蓝色大肥鱼_扩音器_2026-08-18-14-21-17.gif",
+      "duration": 0.52,
+      "webm": "webm/扩音器.webm",
+      "mov": "mov/扩音器.mov"
+    },
+    {
+      "name": "抓拍(手机)",
+      "source": "蓝色大肥鱼_抓拍(手机)_2026-08-18-14-04-40.gif",
+      "duration": 1.64,
+      "webm": "webm/抓拍(手机).webm",
+      "mov": "mov/抓拍(手机).mov"
+    },
+    {
+      "name": "抓拍(摄像机)",
+      "source": "蓝色大肥鱼_抓拍(摄像机)_2026-08-18-14-04-46.gif",
+      "duration": 1.64,
+      "webm": "webm/抓拍(摄像机).webm",
+      "mov": "mov/抓拍(摄像机).mov"
+    },
+    {
+      "name": "折扇",
+      "source": "蓝色大肥鱼_折扇_2026-08-18-14-12-51.gif",
+      "duration": 1.32,
+      "webm": "webm/折扇.webm",
+      "mov": "mov/折扇.mov"
+    },
+    {
+      "name": "拍蝇",
+      "source": "蓝色大肥鱼_拍蝇_2026-08-18-14-36-19.gif",
+      "duration": 0.58,
+      "webm": "webm/拍蝇.webm",
+      "mov": "mov/拍蝇.mov"
+    },
+    {
+      "name": "拖鞋 1",
+      "source": "蓝色大肥鱼_拖鞋 1_2026-08-18-14-29-10.gif",
+      "duration": 0.38,
+      "webm": "webm/拖鞋 1.webm",
+      "mov": "mov/拖鞋 1.mov"
+    },
+    {
+      "name": "拖鞋 2",
+      "source": "蓝色大肥鱼_拖鞋 2_2026-08-18-14-29-22.gif",
+      "duration": 2.32,
+      "webm": "webm/拖鞋 2.webm",
+      "mov": "mov/拖鞋 2.mov"
+    },
+    {
+      "name": "拿走我的钱",
+      "source": "蓝色大肥鱼_拿走我的钱_2026-08-18-14-37-03.gif",
+      "duration": 1.14,
+      "webm": "webm/拿走我的钱.webm",
+      "mov": "mov/拿走我的钱.mov"
+    },
+    {
+      "name": "指",
+      "source": "蓝色大肥鱼_指_2026-08-18-14-24-46.gif",
+      "duration": 0.78,
+      "webm": "webm/指.webm",
+      "mov": "mov/指.mov"
+    },
+    {
+      "name": "按钮",
+      "source": "蓝色大肥鱼_按钮_2026-08-18-14-03-53.gif",
+      "duration": 0.32,
+      "webm": "webm/按钮.webm",
+      "mov": "mov/按钮.mov"
+    },
+    {
+      "name": "摇可乐",
+      "source": "蓝色大肥鱼_摇可乐_2026-08-18-14-06-00.gif",
+      "duration": 0.24,
+      "webm": "webm/摇可乐.webm",
+      "mov": "mov/摇可乐.mov"
+    },
+    {
+      "name": "摇头",
+      "source": "蓝色大肥鱼_摇头_2026-08-18-14-15-27.gif",
+      "duration": 0.64,
+      "webm": "webm/摇头.webm",
+      "mov": "mov/摇头.mov"
+    },
+    {
+      "name": "摇铃",
+      "source": "蓝色大肥鱼_摇铃_2026-08-18-14-03-15.gif",
+      "duration": 0.52,
+      "webm": "webm/摇铃.webm",
+      "mov": "mov/摇铃.mov"
+    },
+    {
+      "name": "摘掉墨镜",
+      "source": "蓝色大肥鱼_摘掉墨镜_2026-08-18-14-36-07.gif",
+      "duration": 1.92,
+      "webm": "webm/摘掉墨镜.webm",
+      "mov": "mov/摘掉墨镜.mov"
+    },
+    {
+      "name": "摸头",
+      "source": "蓝色大肥鱼_摸头_2026-08-18-14-23-48.gif",
+      "duration": 0.64,
+      "webm": "webm/摸头.webm",
+      "mov": "mov/摸头.mov"
+    },
+    {
+      "name": "撬棍 1",
+      "source": "蓝色大肥鱼_撬棍 1_2026-08-18-14-06-29.gif",
+      "duration": 1.14,
+      "webm": "webm/撬棍 1.webm",
+      "mov": "mov/撬棍 1.mov"
+    },
+    {
+      "name": "撬棍 2",
+      "source": "蓝色大肥鱼_撬棍 2_2026-08-18-14-06-36.gif",
+      "duration": 1.48,
+      "webm": "webm/撬棍 2.webm",
+      "mov": "mov/撬棍 2.mov"
+    },
+    {
+      "name": "撬棍 3",
+      "source": "蓝色大肥鱼_撬棍 3_2026-08-18-14-06-48.gif",
+      "duration": 1.32,
+      "webm": "webm/撬棍 3.webm",
+      "mov": "mov/撬棍 3.mov"
+    },
+    {
+      "name": "敲头",
+      "source": "蓝色大肥鱼_敲头_2026-08-18-14-03-25.gif",
+      "duration": 0.58,
+      "webm": "webm/敲头.webm",
+      "mov": "mov/敲头.mov"
+    },
+    {
+      "name": "期待 1",
+      "source": "蓝色大肥鱼_期待 1_2026-08-18-14-29-36.gif",
+      "duration": 2.64,
+      "webm": "webm/期待 1.webm",
+      "mov": "mov/期待 1.mov"
+    },
+    {
+      "name": "期待 2",
+      "source": "蓝色大肥鱼_期待 2_2026-08-18-14-29-41.gif",
+      "duration": 1.32,
+      "webm": "webm/期待 2.webm",
+      "mov": "mov/期待 2.mov"
+    },
+    {
+      "name": "枪",
+      "source": "蓝色大肥鱼_枪_2026-08-18-14-15-10.gif",
+      "duration": 0.64,
+      "webm": "webm/枪.webm",
+      "mov": "mov/枪.mov"
+    },
+    {
+      "name": "正在思考",
+      "source": "蓝色大肥鱼_正在思考_2026-08-18-14-24-28.gif",
+      "duration": 0.98,
+      "webm": "webm/正在思考.webm",
+      "mov": "mov/正在思考.mov"
+    },
+    {
+      "name": "死亡",
+      "source": "蓝色大肥鱼_死亡_2026-08-18-14-08-28.gif",
+      "duration": 1.38,
+      "webm": "webm/死亡.webm",
+      "mov": "mov/死亡.mov"
+    },
+    {
+      "name": "汗",
+      "source": "蓝色大肥鱼_汗_2026-08-18-14-36-26.gif",
+      "duration": 1.32,
+      "webm": "webm/汗.webm",
+      "mov": "mov/汗.mov"
+    },
+    {
+      "name": "点头",
+      "source": "蓝色大肥鱼_点头_2026-08-18-14-15-19.gif",
+      "duration": 0.78,
+      "webm": "webm/点头.webm",
+      "mov": "mov/点头.mov"
+    },
+    {
+      "name": "点赞",
+      "source": "蓝色大肥鱼_点赞_2026-08-18-14-38-05.gif",
+      "duration": 0.98,
+      "webm": "webm/点赞.webm",
+      "mov": "mov/点赞.mov"
+    },
+    {
+      "name": "烧 1",
+      "source": "蓝色大肥鱼_烧 1_2026-08-18-14-12-34.gif",
+      "duration": 1.58,
+      "webm": "webm/烧 1.webm",
+      "mov": "mov/烧 1.mov"
+    },
+    {
+      "name": "烧 2",
+      "source": "蓝色大肥鱼_烧 2_2026-08-18-14-12-42.gif",
+      "duration": 1.58,
+      "webm": "webm/烧 2.webm",
+      "mov": "mov/烧 2.mov"
+    },
+    {
+      "name": "爱心 1",
+      "source": "蓝色大肥鱼_爱心 1_2026-08-18-14-20-15.gif",
+      "duration": 2.14,
+      "webm": "webm/爱心 1.webm",
+      "mov": "mov/爱心 1.mov"
+    },
+    {
+      "name": "爱心 2",
+      "source": "蓝色大肥鱼_爱心 2_2026-08-18-14-20-22.gif",
+      "duration": 2.12,
+      "webm": "webm/爱心 2.webm",
+      "mov": "mov/爱心 2.mov"
+    },
+    {
+      "name": "爱心 3",
+      "source": "蓝色大肥鱼_爱心 3_2026-08-18-14-20-29.gif",
+      "duration": 1.92,
+      "webm": "webm/爱心 3.webm",
+      "mov": "mov/爱心 3.mov"
+    },
+    {
+      "name": "玫瑰",
+      "source": "蓝色大肥鱼_玫瑰_2026-08-18-14-26-27.gif",
+      "duration": 1.32,
+      "webm": "webm/玫瑰.webm",
+      "mov": "mov/玫瑰.mov"
+    },
+    {
+      "name": "生气",
+      "source": "蓝色大肥鱼_生气_2026-08-18-14-02-17.gif",
+      "duration": 1.98,
+      "webm": "webm/生气.webm",
+      "mov": "mov/生气.mov"
+    },
+    {
+      "name": "电风扇 1",
+      "source": "蓝色大肥鱼_电风扇 1_2026-08-18-14-11-56.gif",
+      "duration": 0.98,
+      "webm": "webm/电风扇 1.webm",
+      "mov": "mov/电风扇 1.mov"
+    },
+    {
+      "name": "电风扇 2",
+      "source": "蓝色大肥鱼_电风扇 2_2026-08-18-14-12-00.gif",
+      "duration": 0.98,
+      "webm": "webm/电风扇 2.webm",
+      "mov": "mov/电风扇 2.mov"
+    },
+    {
+      "name": "画板",
+      "source": "蓝色大肥鱼_画板_2026-08-18-14-36-39.gif",
+      "duration": 0.78,
+      "webm": "webm/画板.webm",
+      "mov": "mov/画板.mov"
+    },
+    {
+      "name": "眨眼",
+      "source": "蓝色大肥鱼_眨眼_2026-08-18-14-38-44.gif",
+      "duration": 1.48,
+      "webm": "webm/眨眼.webm",
+      "mov": "mov/眨眼.mov"
+    },
+    {
+      "name": "睡觉 (UU)",
+      "source": "蓝色大肥鱼_睡觉 (UU)_2026-08-18-14-29-04.gif",
+      "duration": 2.64,
+      "webm": "webm/睡觉 (UU).webm",
+      "mov": "mov/睡觉 (UU).mov"
+    },
+    {
+      "name": "睡觉(准备阶段1)",
+      "source": "蓝色大肥鱼_睡觉(准备阶段1)_2026-08-18-14-28-50.gif",
+      "duration": 1.98,
+      "webm": "webm/睡觉(准备阶段1).webm",
+      "mov": "mov/睡觉(准备阶段1).mov"
+    },
+    {
+      "name": "睡觉(准备阶段2)",
+      "source": "蓝色大肥鱼_睡觉(准备阶段2)_2026-08-18-14-28-57.gif",
+      "duration": 1.98,
+      "webm": "webm/睡觉(准备阶段2).webm",
+      "mov": "mov/睡觉(准备阶段2).mov"
+    },
+    {
+      "name": "睡觉(普通)",
+      "source": "蓝色大肥鱼_睡觉(普通)_2026-08-18-14-28-41.gif",
+      "duration": 2.64,
+      "webm": "webm/睡觉(普通).webm",
+      "mov": "mov/睡觉(普通).mov"
+    },
+    {
+      "name": "礼物 1",
+      "source": "蓝色大肥鱼_礼物 1_2026-08-18-14-14-11.gif",
+      "duration": 1.72,
+      "webm": "webm/礼物 1.webm",
+      "mov": "mov/礼物 1.mov"
+    },
+    {
+      "name": "礼物 2",
+      "source": "蓝色大肥鱼_礼物 2_2026-08-18-14-14-21.gif",
+      "duration": 1.32,
+      "webm": "webm/礼物 2.webm",
+      "mov": "mov/礼物 2.mov"
+    },
+    {
+      "name": "笑(指)",
+      "source": "蓝色大肥鱼_笑(指)_2026-08-18-14-16-39.gif",
+      "duration": 0.98,
+      "webm": "webm/笑(指).webm",
+      "mov": "mov/笑(指).mov"
+    },
+    {
+      "name": "笑",
+      "source": "蓝色大肥鱼_笑_2026-08-18-14-16-28.gif",
+      "duration": 0.98,
+      "webm": "webm/笑.webm",
+      "mov": "mov/笑.mov"
+    },
+    {
+      "name": "紧张 1",
+      "source": "蓝色大肥鱼_紧张 1_2026-08-18-14-22-46.gif",
+      "duration": 1.18,
+      "webm": "webm/紧张 1.webm",
+      "mov": "mov/紧张 1.mov"
+    },
+    {
+      "name": "紧张 2",
+      "source": "蓝色大肥鱼_紧张 2_2026-08-18-14-22-53.gif",
+      "duration": 1.18,
+      "webm": "webm/紧张 2.webm",
+      "mov": "mov/紧张 2.mov"
+    },
+    {
+      "name": "红包 1",
+      "source": "蓝色大肥鱼_红包 1_2026-08-18-14-25-33.gif",
+      "duration": 0.98,
+      "webm": "webm/红包 1.webm",
+      "mov": "mov/红包 1.mov"
+    },
+    {
+      "name": "红包 2",
+      "source": "蓝色大肥鱼_红包 2_2026-08-18-14-25-45.gif",
+      "duration": 1.78,
+      "webm": "webm/红包 2.webm",
+      "mov": "mov/红包 2.mov"
+    },
+    {
+      "name": "胶带",
+      "source": "蓝色大肥鱼_胶带_2026-08-18-14-37-14.gif",
+      "duration": 1.38,
+      "webm": "webm/胶带.webm",
+      "mov": "mov/胶带.mov"
+    },
+    {
+      "name": "自我安慰",
+      "source": "蓝色大肥鱼_自我安慰_2026-08-18-14-06-15.gif",
+      "duration": 1.84,
+      "webm": "webm/自我安慰.webm",
+      "mov": "mov/自我安慰.mov"
+    },
+    {
+      "name": "舔舔",
+      "source": "蓝色大肥鱼_舔舔_2026-08-18-14-16-54.gif",
+      "duration": 0.98,
+      "webm": "webm/舔舔.webm",
+      "mov": "mov/舔舔.mov"
+    },
+    {
+      "name": "舞蹈(散味)",
+      "source": "蓝色大肥鱼_舞蹈(散味)_2026-08-18-14-08-18.gif",
+      "duration": 1.32,
+      "webm": "webm/舞蹈(散味).webm",
+      "mov": "mov/舞蹈(散味).mov"
+    },
+    {
+      "name": "荧光棒 2",
+      "source": "蓝色大肥鱼_荧光棒 2_2026-08-18-14-18-47.gif",
+      "duration": 0.98,
+      "webm": "webm/荧光棒 2.webm",
+      "mov": "mov/荧光棒 2.mov"
+    },
+    {
+      "name": "蛋糕",
+      "source": "蓝色大肥鱼_蛋糕_2026-08-18-14-04-05.gif",
+      "duration": 1.52,
+      "webm": "webm/蛋糕.webm",
+      "mov": "mov/蛋糕.mov"
+    },
+    {
+      "name": "被击中(Bits)",
+      "source": "蓝色大肥鱼_被击中(Bits)_2026-08-18-14-13-19.gif",
+      "duration": 0.82,
+      "webm": "webm/被击中(Bits).webm",
+      "mov": "mov/被击中(Bits).mov"
+    },
+    {
+      "name": "被击中(拖鞋)",
+      "source": "蓝色大肥鱼_被击中(拖鞋)_2026-08-18-14-13-52.gif",
+      "duration": 0.82,
+      "webm": "webm/被击中(拖鞋).webm",
+      "mov": "mov/被击中(拖鞋).mov"
+    },
+    {
+      "name": "被击中(爱心)",
+      "source": "蓝色大肥鱼_被击中(爱心)_2026-08-18-14-13-47.gif",
+      "duration": 0.82,
+      "webm": "webm/被击中(爱心).webm",
+      "mov": "mov/被击中(爱心).mov"
+    },
+    {
+      "name": "被击中(硬币)",
+      "source": "蓝色大肥鱼_被击中(硬币)_2026-08-18-14-13-30.gif",
+      "duration": 0.82,
+      "webm": "webm/被击中(硬币).webm",
+      "mov": "mov/被击中(硬币).mov"
+    },
+    {
+      "name": "要米",
+      "source": "蓝色大肥鱼_要米_2026-08-18-14-22-34.gif",
+      "duration": 1.64,
+      "webm": "webm/要米.webm",
+      "mov": "mov/要米.mov"
+    },
+    {
+      "name": "记录 1",
+      "source": "蓝色大肥鱼_记录 1_2026-08-18-14-23-06.gif",
+      "duration": 2.64,
+      "webm": "webm/记录 1.webm",
+      "mov": "mov/记录 1.mov"
+    },
+    {
+      "name": "记录 2",
+      "source": "蓝色大肥鱼_记录 2_2026-08-18-14-23-16.gif",
+      "duration": 0.98,
+      "webm": "webm/记录 2.webm",
+      "mov": "mov/记录 2.mov"
+    },
+    {
+      "name": "跳舞 1",
+      "source": "蓝色大肥鱼_跳舞 1_2026-08-18-14-07-32.gif",
+      "duration": 1.98,
+      "webm": "webm/跳舞 1.webm",
+      "mov": "mov/跳舞 1.mov"
+    },
+    {
+      "name": "跳舞(Caramelldansen)",
+      "source": "蓝色大肥鱼_跳舞(Caramelldansen)_2026-08-18-14-07-42.gif",
+      "duration": 1.32,
+      "webm": "webm/跳舞(Caramelldansen).webm",
+      "mov": "mov/跳舞(Caramelldansen).mov"
+    },
+    {
+      "name": "跳舞(Helltaker)",
+      "source": "蓝色大肥鱼_跳舞(Helltaker)_2026-08-18-14-07-49.gif",
+      "duration": 0.98,
+      "webm": "webm/跳舞(Helltaker).webm",
+      "mov": "mov/跳舞(Helltaker).mov"
+    },
+    {
+      "name": "跳舞(低皮质醇)",
+      "source": "蓝色大肥鱼_跳舞(低皮质醇)_2026-08-18-14-08-05.gif",
+      "duration": 1.32,
+      "webm": "webm/跳舞(低皮质醇).webm",
+      "mov": "mov/跳舞(低皮质醇).mov"
+    },
+    {
+      "name": "通知_提示 Bits",
+      "source": "蓝色大肥鱼_通知_提示 Bits_2026-08-18-14-01-30.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_提示 Bits.webm",
+      "mov": "mov/通知_提示 Bits.mov"
+    },
+    {
+      "name": "通知_提示 星星_收藏",
+      "source": "蓝色大肥鱼_通知_提示 星星_收藏_2026-08-18-14-02-04.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_提示 星星_收藏.webm",
+      "mov": "mov/通知_提示 星星_收藏.mov"
+    },
+    {
+      "name": "通知_提示 点赞",
+      "source": "蓝色大肥鱼_通知_提示 点赞_2026-08-18-14-01-58.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_提示 点赞.webm",
+      "mov": "mov/通知_提示 点赞.mov"
+    },
+    {
+      "name": "通知_提示 爱心_喜欢",
+      "source": "蓝色大肥鱼_通知_提示 爱心_喜欢_2026-08-18-14-01-51.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_提示 爱心_喜欢.webm",
+      "mov": "mov/通知_提示 爱心_喜欢.mov"
+    },
+    {
+      "name": "通知_提示 硬币",
+      "source": "蓝色大肥鱼_通知_提示 硬币_2026-08-18-14-01-45.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_提示 硬币.webm",
+      "mov": "mov/通知_提示 硬币.mov"
+    },
+    {
+      "name": "通知_自定义",
+      "source": "蓝色大肥鱼_通知_自定义_2026-08-18-14-01-38.gif",
+      "duration": 1.72,
+      "webm": "webm/通知_自定义.webm",
+      "mov": "mov/通知_自定义.mov"
+    },
+    {
+      "name": "钱",
+      "source": "蓝色大肥鱼_钱_2026-08-18-14-21-34.gif",
+      "duration": 0.98,
+      "webm": "webm/钱.webm",
+      "mov": "mov/钱.mov"
+    },
+    {
+      "name": "问号",
+      "source": "蓝色大肥鱼_问号_2026-08-18-14-25-05.gif",
+      "duration": 1.14,
+      "webm": "webm/问号.webm",
+      "mov": "mov/问号.mov"
+    },
+    {
+      "name": "静音 1",
+      "source": "蓝色大肥鱼_静音 1_2026-08-18-14-21-45.gif",
+      "duration": 0.98,
+      "webm": "webm/静音 1.webm",
+      "mov": "mov/静音 1.mov"
+    },
+    {
+      "name": "静音 2",
+      "source": "蓝色大肥鱼_静音 2_2026-08-18-14-22-18.gif",
+      "duration": 1.64,
+      "webm": "webm/静音 2.webm",
+      "mov": "mov/静音 2.mov"
+    },
+    {
+      "name": "馋(刀叉)",
+      "source": "蓝色大肥鱼_馋(刀叉)_2026-08-18-14-09-51.gif",
+      "duration": 0.64,
+      "webm": "webm/馋(刀叉).webm",
+      "mov": "mov/馋(刀叉).mov"
+    },
+    {
+      "name": "馋(筷子)",
+      "source": "蓝色大肥鱼_馋(筷子)_2026-08-18-14-09-43.gif",
+      "duration": 0.64,
+      "webm": "webm/馋(筷子).webm",
+      "mov": "mov/馋(筷子).mov"
+    },
+    {
+      "name": "驾驶",
+      "source": "蓝色大肥鱼_驾驶_2026-08-18-14-09-11.gif",
+      "duration": 0.52,
+      "webm": "webm/驾驶.webm",
+      "mov": "mov/驾驶.mov"
+    },
+    {
+      "name": "魔法",
+      "source": "蓝色大肥鱼_魔法_2026-08-18-14-20-35.gif",
+      "duration": 0.64,
+      "webm": "webm/魔法.webm",
+      "mov": "mov/魔法.mov"
+    }
+  ]
+}

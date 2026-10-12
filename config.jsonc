@@ -1,0 +1,24 @@
+{
+  "motions": {
+    "idle": "待机-静态",
+    "turn": "待机-静态",
+    "moving-left": "待机-静态",
+    "moving-right": "待机-静态",
+    "dragging": "待机-静态",
+    "waving": "打招呼 1",
+    "thinking": "正在思考",
+    "working": "打字(普通)",
+    "result": "记录 2",
+    "waiting": "待机-静态",
+    "running": "打字(普通)",
+    "review": "记录 2",
+    "failed": "汗",
+    "success": "加油",
+    "error": "汗"
+  },
+  "animationWeights": {
+    "idle": 1,
+    "turn": 0,
+    "move": 0
+  }
+}
