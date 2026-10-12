@@ -53,7 +53,7 @@ func verify() throws {
         throw reader.error ?? NSError(domain: "incomplete native decode", code: 1)
     }
     guard frames == expectedFrames,
-          abs(asset.duration.seconds - expectedDuration) <= 0.1,
+          abs(asset.duration.seconds - expectedDuration) <= 1.0 / 30.0 + 0.005,
           minimum < 100, maximum > 200,
           abs(Double(firstSum) / 250000 - sourceMean) < 5 else {
         throw NSError(domain: "source mismatch or lost alpha: frames=\(frames)/\(expectedFrames), duration=\(asset.duration.seconds)/\(expectedDuration), alpha=\(minimum)...\(maximum), mean=\(Double(firstSum) / 250000)/\(sourceMean)", code: 1)

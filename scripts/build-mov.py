@@ -12,7 +12,7 @@ def probe(path):
     result = subprocess.run([
         "ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
         "-show_streams", "-show_format", "-of", "json", str(path)
-    ], check=True, capture_output=True, text=True, timeout=120)
+    ], check=True, capture_output=True, text=True, encoding="utf-8", timeout=120)
     return json.loads(result.stdout)
 
 
@@ -53,11 +53,13 @@ def validate_source(path, media):
     alpha = pixels[3::4]
     all_alpha = subprocess.run([
         "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(path),
-        "-vf", "alphaextract,scale=32:32", "-f", "rawvideo", "-pix_fmt", "gray", "-"
+        "-vf", "fps=30,alphaextract,scale=32:32", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "gray", "-"
     ], check=True, capture_output=True, timeout=120).stdout
     assert len(all_alpha) >= 2048 and len(all_alpha) % 1024 == 0, path
     assert min(all_alpha) < 100 and max(all_alpha) > 200, f"source alpha missing: {path}"
-    return sum(alpha) / len(alpha)
+    frames = len(all_alpha) // 1024
+    assert abs(frames / 30 - float(media["format"]["duration"])) <= 1 / 30 + 0.001, f"normalized duration changed: {path}"
+    return sum(alpha) / len(alpha), frames
 
 
 def build():
@@ -66,13 +68,14 @@ def build():
     output_dir.mkdir(exist_ok=True)
     for source in sources:
         media = probe(source)
-        mean = validate_source(source, media)
+        mean, frames = validate_source(source, media)
+        print(f"encoding {source.name}: packets={media['streams'][0]['nb_read_frames']}, CFR30 frames={frames}, duration={media['format']['duration']}", flush=True)
         target = output_dir / (source.stem + ".mov")
         with TemporaryDirectory(prefix="hevc-alpha-", dir=output_dir) as temporary:
             encoded = Path(temporary) / "output.mov"
             decoder = subprocess.Popen([
                 "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(source),
-                "-an", "-f", "rawvideo", "-pix_fmt", "bgra", "-"
+                "-an", "-vf", "fps=30", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "bgra", "-"
             ], stdout=subprocess.PIPE)
             try:
                 encoder = subprocess.run([
@@ -91,7 +94,7 @@ def build():
             assert output["streams"][0]["r_frame_rate"] == "30/1", source
             assert 0 < encoded.stat().st_size < 100 * 1024 * 1024, source
             subprocess.run([
-                os.environ["ALPHA_VERIFIER"], str(encoded), media["streams"][0]["nb_read_frames"],
+                os.environ["ALPHA_VERIFIER"], str(encoded), str(frames),
                 media["format"]["duration"], str(mean)
             ], check=True, timeout=300)
             encoded.replace(target)

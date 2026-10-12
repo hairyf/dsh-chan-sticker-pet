@@ -30,7 +30,7 @@ function probe(path) {
 
 function decoded(path, filter, format) {
   const decoder = path.endsWith('.webm') ? ['-c:v', 'libvpx-vp9'] : []
-  return run(ffmpeg, ['-v', 'error', ...decoder, '-i', path, '-vf', filter, '-f', 'rawvideo', '-pix_fmt', format, '-'], true)
+  return run(ffmpeg, ['-v', 'error', ...decoder, '-i', path, '-vf', filter, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', format, '-'], true)
 }
 
 function configure() {
@@ -57,8 +57,9 @@ function verify() {
       assert.equal(stream.height, 500, path)
       assert(Number(stream.nb_read_frames) > 1, path)
       assert(Number(media.format.duration) > 0, `${path}: duration missing`)
-      const bytes = decoded(path, 'format=rgba,alphaextract,scale=32:32', 'gray')
+      const bytes = decoded(path, 'fps=30,format=rgba,alphaextract,scale=32:32', 'gray')
       assert(bytes.length >= 2048 && bytes.length % 1024 === 0, `${path}: alpha frames missing`)
+      assert(Math.abs(bytes.length / 1024 / 30 - Number(media.format.duration)) <= 1 / 30 + 0.005, `${path}: normalized duration changed`)
       assert(bytes.some(x => x === 0) && bytes.some(x => x > 240), `${path}: transparency lost`)
     }
   }
@@ -81,9 +82,9 @@ function verify() {
   assert.equal(gif.readUInt16LE(8), 500)
   const preview = probe(join(root, 'preview', 'preview.gif'))
   assert(Number(preview.streams[0].nb_read_frames) > 1)
-  const raw = decoded(join(root, 'webm', `${idle}.webm`), 'format=rgba,scale=32:32', 'rgba')
+  const raw = decoded(join(root, 'webm', `${idle}.webm`), 'fps=30,format=rgba,scale=32:32', 'rgba')
   const frameBytes = 32 * 32 * 4
-  assert(raw.length > frameBytes)
+  assert.equal(raw.length / frameBytes, 60, 'two-second idle must normalize to 60 frames at 30 fps')
   for (let i = frameBytes; i < raw.length; i += frameBytes)
     assert(raw.subarray(0, frameBytes).equals(raw.subarray(i, i + frameBytes)), 'idle must remain still')
   const pet = JSON.parse(readFileSync(join(root, 'pet.json'), 'utf8'))
@@ -98,8 +99,9 @@ function verify() {
       assert.equal(media.streams[0].codec_tag_string, 'hvc1', path)
       assert.equal(media.streams[0].width, 500, path)
       assert.equal(media.streams[0].height, 500, path)
-      assert.equal(media.streams[0].nb_read_frames, source.streams[0].nb_read_frames, path)
-      assert(Math.abs(Number(media.format.duration) - Number(source.format.duration)) < 0.1, path)
+      const alpha = decoded(join(root, 'webm', name), 'fps=30,alphaextract,scale=32:32', 'gray')
+      assert.equal(Number(media.streams[0].nb_read_frames), alpha.length / 1024, path)
+      assert(Math.abs(Number(media.format.duration) - Number(source.format.duration)) <= 1 / 30 + 0.005, path)
     }
   }
   const message = 'ok: 158 VP9-alpha WebM; dimensions, durations, decoded alpha, animated GIF and static idle verified. Enabled MOV checked for HEVC metadata only; native decoded alpha is verified by build-mov CI.'
