@@ -99,7 +99,7 @@ function verify() {
       assert.equal(media.streams[0].codec_tag_string, 'hvc1', path)
       assert.equal(media.streams[0].width, 500, path)
       assert.equal(media.streams[0].height, 500, path)
-      const alpha = decoded(join(root, 'webm', name), 'fps=30,alphaextract,scale=32:32', 'gray')
+      const alpha = decoded(join(root, 'webm', name), 'fps=30,format=rgba,alphaextract,scale=32:32', 'gray')
       assert.equal(Number(media.streams[0].nb_read_frames), alpha.length / 1024, path)
       assert(Math.abs(Number(media.format.duration) - Number(source.format.duration)) <= 1 / 30 + 0.005, path)
     }

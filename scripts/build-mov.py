@@ -12,7 +12,7 @@ def probe(path):
     result = subprocess.run([
         "ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
         "-show_streams", "-show_format", "-of", "json", str(path)
-    ], check=True, capture_output=True, text=True, encoding="utf-8", timeout=120)
+    ], check=True, stdout=subprocess.PIPE, text=True, encoding="utf-8", timeout=120)
     return json.loads(result.stdout)
 
 
@@ -48,13 +48,13 @@ def validate_source(path, media):
     pixels = subprocess.run([
         "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(path),
         "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgba", "-"
-    ], check=True, capture_output=True, timeout=120).stdout
+    ], check=True, stdout=subprocess.PIPE, timeout=120).stdout
     assert len(pixels) == 500 * 500 * 4, path
     alpha = pixels[3::4]
     all_alpha = subprocess.run([
         "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(path),
-        "-vf", "fps=30,alphaextract,scale=32:32", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "gray", "-"
-    ], check=True, capture_output=True, timeout=120).stdout
+        "-vf", "fps=30,format=rgba,alphaextract,scale=32:32", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "gray", "-"
+    ], check=True, stdout=subprocess.PIPE, timeout=120).stdout
     assert len(all_alpha) >= 2048 and len(all_alpha) % 1024 == 0, path
     assert min(all_alpha) < 100 and max(all_alpha) > 200, f"source alpha missing: {path}"
     frames = len(all_alpha) // 1024
@@ -67,6 +67,7 @@ def build():
     output_dir = ROOT / "mov"
     output_dir.mkdir(exist_ok=True)
     for source in sources:
+        print(f"validating {source.name}", flush=True)
         media = probe(source)
         mean, frames = validate_source(source, media)
         print(f"encoding {source.name}: packets={media['streams'][0]['nb_read_frames']}, CFR30 frames={frames}, duration={media['format']['duration']}", flush=True)
