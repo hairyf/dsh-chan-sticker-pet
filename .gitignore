@@ -1,4 +1,4 @@
 .work/
-mov/
+.upstream/
 *.zip
 validation.txt

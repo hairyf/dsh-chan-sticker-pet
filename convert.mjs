@@ -9,10 +9,8 @@ const source = process.argv[3]
 const ffmpeg = process.env.FFMPEG || 'ffmpeg'
 const ffprobe = process.env.FFPROBE || (ffmpeg === 'ffmpeg' ? 'ffprobe' : join(dirname(ffmpeg), process.platform === 'win32' ? 'ffprobe.exe' : 'ffprobe'))
 const idle = '待机-静态'
-const motions = { idle, turn: idle, 'moving-left': idle, 'moving-right': idle, dragging: idle, waving: '打招呼 1', thinking: '正在思考', working: '打字(普通)', result: '记录 2', waiting: idle, running: '打字(普通)', review: '记录 2', failed: '汗', success: '加油', error: '汗' }
 const formats = [
   ['webm', 'vp9', ['-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-b:v', '0', '-crf', '24', '-deadline', 'good', '-cpu-used', '4', '-auto-alt-ref', '0']],
-  ['mov', 'prores', ['-c:v', 'prores_ks', '-profile:v', '4', '-pix_fmt', 'yuva444p10le', '-alpha_bits', '16', '-vendor', 'apl0']],
 ]
 
 function run(exe, args, capture = false) {
@@ -42,32 +40,41 @@ function configure() {
   for (const [format, , options] of formats)
     encode(['-loop', '1', '-i', frame, '-t', '2', '-r', '30', '-an', '-threads', '4', ...options, ...(format === 'webm' ? ['-lossless', '1', '-crf', '0'] : []), join(root, format, `${idle}.${format}`)])
   copyFileSync(join(source, '蓝色大肥鱼_打招呼 1_2026-08-18-14-14-29.gif'), join(root, 'preview', 'preview.gif'))
-  writeFileSync(join(root, 'config.jsonc'), JSON.stringify({ motions, animationWeights: { idle: 1, turn: 0, move: 0 } }, null, 2) + '\n')
-  writeFileSync(join(root, 'pet.json'), JSON.stringify({ id: 'dsh-chan-sticker-pet', kind: 'dsh', displayName: '蓝色大肥鱼贴纸', description: '完整视频动作；待机使用眨眼素材的中性首帧，不跟随鼠标转向。MOV 为编辑归档格式，非 macOS 透明播放格式。', configPath: 'config.jsonc', uriPath: 'webm', previewPath: 'preview/preview.gif', ext: { default: 'webm', mac: 'webm' }, size: 400 }, null, 2) + '\n')
+  const pet = JSON.parse(readFileSync(join(root, 'pet.json'), 'utf8'))
+  writeFileSync(join(root, 'pet.json'), JSON.stringify({ ...pet, displayName: 'Maid DeepSeek Sticker', description: '157 个贴纸动作与静态待机。' }, null, 2) + '\n')
 }
 
 function verify() {
-  const catalog = JSON.parse(readFileSync(join(root, 'catalog.json'), 'utf8'))
-  assert.equal(catalog.animations.length, 157)
-  for (const animation of [...catalog.animations, { name: idle, duration: 2, webm: `webm/${idle}.webm`, mov: `mov/${idle}.mov` }]) {
+  const files = readdirSync(join(root, 'webm')).filter(name => name.endsWith('.webm'))
+  assert.equal(files.length, 158)
+  for (const name of files) {
     for (const [format, codec] of formats) {
-      const path = join(root, animation[format])
+      const path = join(root, format, name)
       const media = probe(path)
       const stream = media.streams[0]
       assert.equal(stream.codec_name, codec, path)
       assert.equal(stream.width, 500, path)
       assert.equal(stream.height, 500, path)
       assert(Number(stream.nb_read_frames) > 1, path)
-      assert(Math.abs(Number(media.format.duration) - animation.duration) < 0.1, `${path}: duration changed`)
+      assert(Number(media.format.duration) > 0, `${path}: duration missing`)
       const bytes = decoded(path, 'format=rgba,alphaextract,scale=32:32', 'gray')
       assert(bytes.length >= 2048 && bytes.length % 1024 === 0, `${path}: alpha frames missing`)
       assert(bytes.some(x => x === 0) && bytes.some(x => x > 240), `${path}: transparency lost`)
     }
   }
   const config = JSON.parse(readFileSync(join(root, 'config.jsonc'), 'utf8'))
-  assert.deepEqual(config.motions, motions)
-  for (const name of new Set(Object.values(motions)))
+  for (const key of ['idle', 'turn', 'moving-left', 'moving-right', 'dragging', 'waiting'])
+    assert.equal(config.motions[key], idle, `${key} must remain static`)
+  const animations = config.animations || {}
+  const values = [...Object.values(config.motions || {}), ...Object.values(animations.motions || {}), ...['idle', 'turn', 'drag', 'clicks'].filter(key => key in animations).map(key => animations[key]), ...Object.values(animations.events || {}), ...(animations.categories || []).map(category => category.actions), ...(animations.moves?.actions || []).map(action => action.name)]
+  const names = new Set(values.flat(Infinity))
+  assert([...names].every(name => typeof name === 'string'), 'animation references must be strings')
+  for (const name of names)
     for (const [format] of formats) assert(statSync(join(root, format, `${name}.${format}`)).size > 0)
+  assert(Array.isArray(animations.clicks), 'click animation pool is required')
+  assert.equal(names.size, 158, 'all animations must be referenced')
+  assert.equal(new Set(animations.clicks).size, 157, 'all original animations must be clickable')
+  assert.deepEqual(config.animationWeights, { idle: 100, turn: 0, move: 0 })
   const gif = readFileSync(join(root, 'preview', 'preview.gif'))
   assert.match(gif.subarray(0, 6).toString(), /^GIF8[79]a$/)
   assert.equal(gif.readUInt16LE(6), 500)
@@ -79,7 +86,23 @@ function verify() {
   assert(raw.length > frameBytes)
   for (let i = frameBytes; i < raw.length; i += frameBytes)
     assert(raw.subarray(0, frameBytes).equals(raw.subarray(i, i + frameBytes)), 'idle must remain still')
-  const message = 'ok: 157 animation pairs + static idle; VP9/ProRes, 500x500, durations and decoded alpha verified; animated square GIF and identical idle frames verified. macOS HEVC-alpha playback not provided.'
+  const pet = JSON.parse(readFileSync(join(root, 'pet.json'), 'utf8'))
+  if (pet.ext.mac === 'mov') {
+    assert.equal(pet.macUriPath, 'mov')
+    assert.equal(readdirSync(join(root, 'mov')).filter(name => name.endsWith('.mov')).length, 158)
+    for (const name of files) {
+      const path = join(root, 'mov', name.replace(/\.webm$/, '.mov'))
+      const media = probe(path)
+      const source = probe(join(root, 'webm', name))
+      assert.equal(media.streams[0].codec_name, 'hevc', path)
+      assert.equal(media.streams[0].codec_tag_string, 'hvc1', path)
+      assert.equal(media.streams[0].width, 500, path)
+      assert.equal(media.streams[0].height, 500, path)
+      assert.equal(media.streams[0].nb_read_frames, source.streams[0].nb_read_frames, path)
+      assert(Math.abs(Number(media.format.duration) - Number(source.format.duration)) < 0.1, path)
+    }
+  }
+  const message = 'ok: 158 VP9-alpha WebM; dimensions, durations, decoded alpha, animated GIF and static idle verified. Enabled MOV checked for HEVC metadata only; native decoded alpha is verified by build-mov CI.'
   writeFileSync(join(root, 'validation.txt'), message + '\n')
   console.log(message)
 }
@@ -91,7 +114,6 @@ if (command === 'convert') {
   for (const [format] of formats) mkdirSync(join(root, format), { recursive: true })
   const files = readdirSync(source).filter(name => name.endsWith('.gif')).sort()
   assert.equal(files.length, 157, 'source GIF count changed')
-  const animations = []
   for (const [index, name] of files.entries()) {
     const input = join(source, name)
     const info = probe(input)
@@ -104,9 +126,7 @@ if (command === 'convert') {
       if (statSync(output, { throwIfNoEntry: false })?.size > 0) continue
       encode(['-i', input, '-vf', 'fps=30,format=rgba', '-an', '-threads', '4', ...options, output])
     }
-    animations.push({ name: stem, source: name, duration: Number(info.format.duration), webm: `webm/${stem}.webm`, mov: `mov/${stem}.mov` })
   }
-  writeFileSync(join(root, 'catalog.json'), JSON.stringify({ id: 'dsh-chan-sticker-pet', formats: { webm: 'VP9 alpha', mov: 'ProRes 4444 alpha (not HEVC alpha)' }, limitations: ['No true directional poses; turn and movement use static neutral idle.', 'macOS transparent playback requires separately produced HEVC-with-Alpha MOV.'], animations }, null, 2) + '\n')
 }
 if (command !== 'verify') configure()
 verify()

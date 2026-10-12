@@ -1,0 +1,49 @@
+name: build-mov
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-mov
+  cancel-in-progress: false
+
+jobs:
+  encode:
+    runs-on: macos-14
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Checkout pinned encoder scripts
+        uses: actions/checkout@v4
+        with:
+          repository: PC2005-cloud/dsh-pet
+          ref: e1ff8c1e4001878cbb80441262d530e16541f138
+          path: .upstream
+          persist-credentials: false
+          sparse-checkout: scripts
+      - name: Install FFmpeg
+        run: brew install ffmpeg
+      - name: Compile native encoder and verifier
+        run: |
+          set -euo pipefail
+          xcrun swiftc -O -framework AVFoundation -framework CoreVideo -framework VideoToolbox .upstream/scripts/hevc_alpha_encoder.swift -o "$RUNNER_TEMP/hevc-alpha-encoder"
+          xcrun swiftc -O -framework AVFoundation -framework CoreVideo scripts/verify-alpha.swift -o "$RUNNER_TEMP/verify-alpha"
+      - name: Encode and verify all 158 animations
+        env:
+          ENCODER: ${{ runner.temp }}/hevc-alpha-encoder
+          ALPHA_VERIFIER: ${{ runner.temp }}/verify-alpha
+        run: python3 scripts/build-mov.py run
+      - name: Commit verified assets and enable macOS playback
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add mov pet.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore: publish 158 verified HEVC-alpha animations'
+          git push origin HEAD:main
