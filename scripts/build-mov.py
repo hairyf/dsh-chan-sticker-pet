@@ -53,7 +53,7 @@ def validate_source(path, media):
     alpha = pixels[3::4]
     all_alpha = subprocess.run([
         "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(path),
-        "-vf", "fps=30,format=rgba,alphaextract,scale=32:32", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "gray", "-"
+        "-vf", "fps=30,format=rgba,alphaextract,scale=32:32", "-fps_mode", "passthrough", "-f", "rawvideo", "-pix_fmt", "gray", "-"
     ], check=True, stdout=subprocess.PIPE, timeout=120).stdout
     assert len(all_alpha) >= 2048 and len(all_alpha) % 1024 == 0, path
     assert min(all_alpha) < 100 and max(all_alpha) > 200, f"source alpha missing: {path}"
@@ -76,7 +76,7 @@ def build():
             encoded = Path(temporary) / "output.mov"
             decoder = subprocess.Popen([
                 "ffmpeg", "-v", "error", "-c:v", "libvpx-vp9", "-i", str(source),
-                "-an", "-vf", "fps=30", "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "bgra", "-"
+                "-an", "-vf", "fps=30", "-fps_mode", "passthrough", "-f", "rawvideo", "-pix_fmt", "bgra", "-"
             ], stdout=subprocess.PIPE)
             try:
                 encoder = subprocess.run([

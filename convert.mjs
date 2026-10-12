@@ -28,9 +28,11 @@ function probe(path) {
   return JSON.parse(run(ffprobe, ['-v', 'error', '-count_frames', '-show_streams', '-show_format', '-of', 'json', path], true))
 }
 
+const frameSync = run(ffmpeg, ['-hide_banner', '-h', 'full'], true).includes(Buffer.from('-fps_mode')) ? ['-fps_mode', 'passthrough'] : ['-vsync', '0']
+
 function decoded(path, filter, format) {
   const decoder = path.endsWith('.webm') ? ['-c:v', 'libvpx-vp9'] : []
-  return run(ffmpeg, ['-v', 'error', ...decoder, '-i', path, '-vf', filter, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', format, '-'], true)
+  return run(ffmpeg, ['-v', 'error', ...decoder, '-i', path, '-vf', filter, ...frameSync, '-f', 'rawvideo', '-pix_fmt', format, '-'], true)
 }
 
 function configure() {
