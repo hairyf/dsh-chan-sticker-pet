@@ -20,7 +20,7 @@ https://github.com/hairyf/dsh-chan-sticker-pet
 
 - 根目录 `pet.json`、`config.jsonc` 是清单和动作映射；`preview/preview.gif` 是清单引用的动态预览。
 - `webm/`：157 个 VP9-alpha 完整动作 + `待机-静态.webm`，全部为普通 Git 文件，不使用 Git LFS；仓库 ZIP / codeload 包含可播放视频。合计 70,700,294 字节，最大单文件 1,314,933 字节。
-- [Release v1.0.0](https://github.com/hairyf/dsh-chan-sticker-pet/releases/tag/v1.0.0) 的 `dsh-chan-sticker-pet-mov.zip`：全部 158 个 ProRes 4444-alpha MOV，未压缩素材合计 1,842,714,140 字节。ZIP 内路径统一为 `mov/<动作名>.mov`；解压到宠物根目录即可补齐编辑资产。运行宠物不需要 MOV；仓库导入和 codeload 下载不会自动下载 Release 的 MOV。
+- [Release v1.0.0](https://github.com/hairyf/dsh-chan-sticker-pet/releases/tag/v1.0.0) 的 `dsh-chan-sticker-pet-mov-01-of-16.zip` 至 `dsh-chan-sticker-pet-mov-16-of-16.zip`：16 个独立 ZIP，每包小于 128 MiB，合计包含全部 158 个 ProRes 4444-alpha MOV（原文件共 1,842,714,140 字节），无重复、无需拼接。ZIP 内均为 `mov/<动作名>.mov`；下载全部包到同一目录后，在 PowerShell 执行 `Get-ChildItem -File -Filter 'dsh-chan-sticker-pet-mov-??-of-16.zip' | ForEach-Object { Expand-Archive -LiteralPath $_.FullName -DestinationPath '<宠物根目录>' -Force }`。运行宠物不需要 MOV；远端注册和按需播放不会自动下载 Release 的 MOV。
 - `preview/idle.png`：取「眨眼」中性首帧；两个格式的静态待机均为该帧的 2 秒视频。待机、转向、移动、等待、抓取共用此姿态，不采样鼠标朝向。
 - `catalog.json`：157 个原动作的源文件名、原时长及两种视频路径；其中 MOV 路径在下载并解压 Release 后有效。额外静态待机由配置引用。
 
