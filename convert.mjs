@@ -38,12 +38,10 @@ function decoded(path, filter, format) {
 function configure() {
   mkdirSync(join(root, 'preview'), { recursive: true })
   const frame = join(root, 'preview', 'idle.png')
-  encode(['-i', join(source, '蓝色大肥鱼_眨眼_2026-08-18-14-38-44.gif'), '-frames:v', '1', frame])
-  for (const [format, , options] of formats)
-    encode(['-loop', '1', '-i', frame, '-t', '2', '-r', '30', '-an', '-threads', '4', ...options, ...(format === 'webm' ? ['-lossless', '1', '-crf', '0'] : []), join(root, format, `${idle}.${format}`)])
+  encode(['-c:v', 'libvpx-vp9', '-i', join(root, 'webm', `${idle}.webm`), '-frames:v', '1', frame])
   copyFileSync(join(source, '蓝色大肥鱼_打招呼 1_2026-08-18-14-14-29.gif'), join(root, 'preview', 'preview.gif'))
   const pet = JSON.parse(readFileSync(join(root, 'pet.json'), 'utf8'))
-  writeFileSync(join(root, 'pet.json'), JSON.stringify({ ...pet, displayName: 'Maid DeepSeek Sticker', description: '157 个贴纸动作与静态待机。' }, null, 2) + '\n')
+  writeFileSync(join(root, 'pet.json'), JSON.stringify({ ...pet, displayName: 'Maid DeepSeek Sticker', description: '157 个贴纸动作与透明待机动画。' }, null, 2) + '\n')
 }
 
 function verify() {
@@ -67,7 +65,7 @@ function verify() {
   }
   const config = JSON.parse(readFileSync(join(root, 'config.jsonc'), 'utf8'))
   for (const key of ['idle', 'turn', 'moving-left', 'moving-right', 'dragging', 'waiting'])
-    assert.equal(config.motions[key], idle, `${key} must remain static`)
+    assert.equal(config.motions[key], idle, `${key} must use the idle animation`)
   const animations = config.animations || {}
   const values = [...Object.values(config.motions || {}), ...Object.values(animations.motions || {}), ...['idle', 'turn', 'drag', 'clicks'].filter(key => key in animations).map(key => animations[key]), ...Object.values(animations.events || {}), ...(animations.categories || []).map(category => category.actions), ...(animations.moves?.actions || []).map(action => action.name)]
   const names = new Set(values.flat(Infinity))
@@ -86,9 +84,11 @@ function verify() {
   assert(Number(preview.streams[0].nb_read_frames) > 1)
   const raw = decoded(join(root, 'webm', `${idle}.webm`), 'fps=30,format=rgba,scale=32:32', 'rgba')
   const frameBytes = 32 * 32 * 4
-  assert.equal(raw.length / frameBytes, 60, 'two-second idle must normalize to 60 frames at 30 fps')
+  assert(raw.length > frameBytes && raw.length % frameBytes === 0, 'idle frames missing')
+  let animated = false
   for (let i = frameBytes; i < raw.length; i += frameBytes)
-    assert(raw.subarray(0, frameBytes).equals(raw.subarray(i, i + frameBytes)), 'idle must remain still')
+    if (!raw.subarray(0, frameBytes).equals(raw.subarray(i, i + frameBytes))) animated = true
+  assert(animated, 'idle animation must contain changing frames')
   const pet = JSON.parse(readFileSync(join(root, 'pet.json'), 'utf8'))
   if (pet.ext.mac === 'mov') {
     assert.equal(pet.macUriPath, 'mov')
@@ -106,7 +106,7 @@ function verify() {
       assert(Math.abs(Number(media.format.duration) - Number(source.format.duration)) <= 1 / 30 + 0.005, path)
     }
   }
-  const message = 'ok: 158 VP9-alpha WebM; dimensions, durations, decoded alpha, animated GIF and static idle verified. Enabled MOV checked for HEVC metadata only; native decoded alpha is verified by build-mov CI.'
+  const message = 'ok: 158 VP9-alpha WebM; dimensions, durations, decoded alpha, animated GIF and animated idle verified. Enabled MOV checked for HEVC metadata only; native decoded alpha is verified by build-mov CI.'
   writeFileSync(join(root, 'validation.txt'), message + '\n')
   console.log(message)
 }

@@ -1,6 +1,6 @@
 # Maid DeepSeek Sticker
 
-157 个透明贴纸动作 + 静态待机，500×500、30 fps。单击随机播放全部 157 个动作，工作事件使用对应动作池。
+157 个透明贴纸动作 + 透明待机动画，500×500、30 fps。单击随机播放全部 157 个动作，工作事件使用对应动作池。
 
 <p align="center">
  <img src="preview/preview.gif">
@@ -12,7 +12,7 @@
 https://github.com/hairyf/dsh-pet-sticker
 ```
 
-Windows/Linux 使用 VP9-alpha `webm/`；macOS 使用 HEVC-alpha `mov/`。手动运行 `build-mov`，校验全部 158 个视频后直接提交到仓库并启用 macOS 清单，不发布 Release 或 artifact。首次成功前，清单仍使用 WebM，macOS 不支持透明播放。旧 Release 的 ProRes 仅为编辑素材，不能替代 HEVC-alpha。
+Windows/Linux 使用 VP9-alpha `webm/`；macOS 使用 HEVC-alpha `mov/`。手动运行 `build-mov`，`animations` 填 `[]` 重建全部 158 个视频，填 `["待机-静态"]` 只重建待机 MOV。增量模式要求仓库已启用 MOV 且其余文件齐全；所选视频通过原生透明度验证后直接提交到仓库，不发布 Release 或 artifact。旧 Release 的 ProRes 仅为编辑素材，不能替代 HEVC-alpha。
 
 转换与检查（Node.js、FFmpeg/ffprobe）：
 
@@ -23,6 +23,6 @@ node convert.mjs verify
 python3 scripts/build-mov.py self-check
 ```
 
-转换只写 WebM，不覆盖 HEVC MOV；原始 GIF 不入库。`verify` 检查 WebM 解码透明度及启用的 MOV 编码信息；MOV 全帧透明度由 CI 使用原生 AVFoundation 验证。待机、移动和转向共用静态姿态，不跟随鼠标朝向。
+转换只写 WebM，不覆盖 HEVC MOV；原始 GIF 不入库。`configure` 保留现有待机 WebM。`verify` 检查 WebM 解码透明度及启用的 MOV 编码信息；MOV 全帧透明度由 CI 使用原生 AVFoundation 验证。待机、移动和转向共用待机动画，不跟随鼠标朝向。待机源为 `idle_transparent_silent.webm`，已统一为 500×500、30 fps，约 10 秒、无音轨；沿用 `待机-静态` 文件名以保持动作引用兼容。
 
 编码参考 [dsh-pet-mov](https://github.com/dsh-tauri/dsh-pet-mov)，复用 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 固定提交的 Swift 编码器；未使用其角色素材。贴纸版权与商用许可归原素材权利人。

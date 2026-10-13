@@ -62,11 +62,29 @@ def validate_source(path, media):
     return sum(alpha) / len(alpha), frames
 
 
+def select_sources(sources, requested):
+    assert isinstance(requested, list), "animations must be a JSON array"
+    assert all(isinstance(name, str) for name in requested), "animation names must be strings"
+    assert len(set(requested)) == len(requested), "duplicate animation names"
+    available = {path.stem for path in sources}
+    assert set(requested) <= available, "unknown animation name"
+    return [path for path in sources if not requested or path.stem in requested]
+
+
 def build():
     sources = matching_sources(ROOT)
+    selected = select_sources(sources, json.loads(os.environ.get("ANIMATIONS", "[]")))
     output_dir = ROOT / "mov"
     output_dir.mkdir(exist_ok=True)
-    for source in sources:
+    if len(selected) != len(sources):
+        pet = json.loads((ROOT / "pet.json").read_text(encoding="utf-8"))
+        assert pet["ext"]["mac"] == "mov", "incremental build requires an enabled MOV baseline"
+        for source in sources:
+            if source not in selected:
+                target = output_dir / (source.stem + ".mov")
+                assert target.is_file() and target.stat().st_size > 0, f"missing baseline MOV: {target}"
+    print(f"selected {len(selected)}/{len(sources)} animations", flush=True)
+    for source in selected:
         print(f"validating {source.name}", flush=True)
         media = probe(source)
         mean, frames = validate_source(source, media)
@@ -105,7 +123,7 @@ def build():
     pet["ext"]["mac"] = "mov"
     pet["macUriPath"] = "mov"
     pet_path.write_text(json.dumps(pet, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("ok: all 158 source-matched HEVC-alpha MOV verified; macOS manifest enabled")
+    print(f"ok: {len(selected)} source-matched HEVC-alpha MOV encoded and verified; 158 MOV present; macOS manifest enabled")
 
 
 def self_check():
@@ -118,7 +136,18 @@ def self_check():
         (root / "config.jsonc").write_text(json.dumps(config), encoding="utf-8")
         for name in names + ["待机-静态"]:
             (root / "webm" / (name + ".webm")).touch()
-        assert len(matching_sources(root)) == 158
+        sources = matching_sources(root)
+        assert len(sources) == 158
+        assert select_sources(sources, []) == sources
+        assert [path.stem for path in select_sources(sources, ["待机-静态"])] == ["待机-静态"]
+        assert len(select_sources(sources, ["Popcat 帧", "六七(呆)"])) == 2
+        for invalid in (["missing"], ["待机-静态", "待机-静态"], "待机-静态", [123]):
+            try:
+                select_sources(sources, invalid)
+            except AssertionError:
+                pass
+            else:
+                raise AssertionError("invalid selection accepted")
         (root / "webm" / "unexpected.webm").touch()
         try:
             matching_sources(root)

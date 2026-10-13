@@ -2,7 +2,7 @@
   "id": "dsh-chan-sticker-pet",
   "kind": "dsh",
   "displayName": "Maid DeepSeek Sticker",
-  "description": "157 个贴纸动作与静态待机。",
+  "description": "157 个贴纸动作与透明待机动画。",
   "configPath": "config.jsonc",
   "uriPath": "webm",
   "previewPath": "preview/preview.gif",
