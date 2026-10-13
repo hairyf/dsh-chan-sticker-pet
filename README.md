@@ -29,4 +29,6 @@ python3 scripts/build-mov.py self-check
 
 转换只写 WebM，不覆盖 HEVC MOV；原始 GIF 不入库。`configure` 保留现有待机 WebM。`verify` 检查 WebM 解码透明度及启用的 MOV 编码信息；MOV 全帧透明度由 CI 使用原生 AVFoundation 验证。待机、移动和转向共用待机动画，不跟随鼠标朝向。待机源为 `idle_transparent_silent.webm`，已统一为 500×500、30 fps，约 10 秒、无音轨；沿用 `待机-静态` 文件名以保持动作引用兼容。
 
+视频素材来源：[B 站视频 BV1V88G6TEvg](https://www.bilibili.com/video/BV1V88G6TEvg) 中提供的资源。
+
 编码参考 [dsh-pet-mov](https://github.com/dsh-tauri/dsh-pet-mov)，复用 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 固定提交的 Swift 编码器；未使用其角色素材。贴纸版权与商用许可归原素材权利人。
