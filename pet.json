@@ -10,6 +10,6 @@
     "default": "webm",
     "mac": "mov"
   },
-  "size": 400,
+  "size": 220,
   "macUriPath": "mov"
 }
