@@ -6,7 +6,7 @@
  <img src="preview/preview.gif">
 </p>
 
-在支持 GitHub 视频宠物导入的 DSH 宿主中导入：
+在支持 GitHub 视频宠物导入的 DSH 宿主（[DSH Tauri](https://github.com/dsh-tauri/deepseek-harness-desktop)）中导入：
 
 ```text
 https://github.com/hairyf/dsh-pet-sticker
