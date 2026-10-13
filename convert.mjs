@@ -80,7 +80,7 @@ function verify() {
   assert(Array.isArray(animations.clicks), 'click animation pool is required')
   assert.equal(names.size, 158, 'all animations must be referenced')
   assert.equal(new Set(animations.clicks).size, 157, 'all original animations must be clickable')
-  assert.deepEqual(config.animationWeights, { idle: 100, turn: 0, move: 0 })
+  assert.deepEqual(config.animationWeights, { idle: 60, turn: 0, move: 0 })
   assert.equal(animations.events.workStatus.length, 6, 'work status tiers must stay in protocol order')
   assert.deepEqual(animations.events.workStatus[4], ['庆祝', '加油', '点赞', '得分(10分)'], 'success must use positive reactions')
   assert(['一切都好 1', '一切都好 2', '一切都好 3'].every(name => animations.categories.find(category => category.id === '情绪、惊讶与安慰').actions.includes(name)), 'angry reactions must be categorized as emotions')
