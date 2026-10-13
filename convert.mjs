@@ -58,6 +58,10 @@ function verify() {
       assert.equal(stream.height, 500, path)
       assert(Number(stream.nb_read_frames) > 1, path)
       assert(Number(media.format.duration) > 0, `${path}: duration missing`)
+      if (name === '摇可乐.webm') {
+        assert.equal(Number(stream.nb_read_frames), 21, '摇可乐 must contain three seven-frame cycles')
+        assert(Math.abs(Number(media.format.duration) - 0.7) <= 0.005, '摇可乐 triple playback duration changed')
+      }
       const bytes = decoded(path, 'fps=30,format=rgba,alphaextract,scale=32:32', 'gray')
       assert(bytes.length >= 2048 && bytes.length % 1024 === 0, `${path}: alpha frames missing`)
       assert(Math.abs(bytes.length / 1024 / 30 - Number(media.format.duration)) <= 1 / 30 + 0.005, `${path}: normalized duration changed`)
@@ -77,6 +81,9 @@ function verify() {
   assert.equal(names.size, 158, 'all animations must be referenced')
   assert.equal(new Set(animations.clicks).size, 157, 'all original animations must be clickable')
   assert.deepEqual(config.animationWeights, { idle: 100, turn: 0, move: 0 })
+  assert.equal(animations.events.workStatus.length, 6, 'work status tiers must stay in protocol order')
+  assert.deepEqual(animations.events.workStatus[4], ['庆祝', '加油', '点赞', '得分(10分)'], 'success must use positive reactions')
+  assert(['一切都好 1', '一切都好 2', '一切都好 3'].every(name => animations.categories.find(category => category.id === '情绪、惊讶与安慰').actions.includes(name)), 'angry reactions must be categorized as emotions')
   const gif = readFileSync(join(root, 'preview', 'preview.gif'))
   assert.match(gif.subarray(0, 6).toString(), /^GIF8[79]a$/)
   assert.equal(gif.readUInt16LE(6), 500)

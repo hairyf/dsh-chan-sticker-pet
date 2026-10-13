@@ -14,6 +14,10 @@ https://github.com/hairyf/dsh-pet-sticker
 
 Windows/Linux 使用 VP9-alpha `webm/`；macOS 使用 HEVC-alpha `mov/`。手动运行 `build-mov`，`animations` 填 `[]` 重建全部 158 个视频，填 `["待机-静态"]` 只重建待机 MOV。增量模式要求仓库已启用 MOV 且其余文件齐全；所选视频通过原生透明度验证后直接提交到仓库，不发布 Release 或 artifact。旧 Release 的 ProRes 仅为编辑素材，不能替代 HEVC-alpha。
 
+工作状态沿用 [上游配置](https://github.com/PC2005-cloud/dsh-pet/blob/main/dsh-pet/assets/config.jsonc) 的六档顺序：思考、工作、结果、等待、完成、失败。完成只播放庆祝、加油、点赞、10 分；“一切都好 1/2/3”归入情绪类，仍可点击播放。
+
+原时长不足 1 秒的 59 个短循环已用 FFmpeg `-stream_loop 2 -c copy` 无损合成三个完整周期并覆盖同名 WebM（例如“摇可乐”从 0.233 秒延长至 0.699 秒）；RGBA 解码逐周期一致，未重编码，保留透明度。对应 MOV 通过现有增量构建生成。
+
 转换与检查（Node.js、FFmpeg/ffprobe）：
 
 ```sh
